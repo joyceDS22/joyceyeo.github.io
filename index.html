@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url("img/w3imagesparallax1.jpg");
+  min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+  background-image: url("img/w3imagesparallax2.jpg");
+  min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+  background-image: url("img/w3imagesparallax3.jpg");
+  min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+      <i class="fa fa-search"></i>
+    </a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+  </div>
+</div>
+
+<!-- First Parallax Image with Animated Roles -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <div class="w3-center w3-padding-large w3-black w3-animate-opacity">
+      <span class="w3-xlarge w3-wide">Hi,I am Joyce</span><br>
+      <span class="w3-medium">
+        <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- CSS for Typewriter Animation -->
+<style>
+  .typed-text {
+    color: #ffd700;
+    font-weight: bold;
+  }
+
+  .cursor {
+    display: inline-block;
+    background-color: #ffd700;
+    width: 2px;
+    animation: blink 0.7s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+</style>
+
+<!-- JavaScript for Typing Animation -->
+<script>
+  const roles = ["AI Explorer", "Forever Curious", "Lifelong Learner", "Tech Enthusiast"];
+  let roleIndex = 0;
+  let charIndex = 0;
+  const typedText = document.querySelector(".typed-text");
+
+  function typeRole() {
+    if (charIndex < roles[roleIndex].length) {
+      typedText.textContent += roles[roleIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeRole, 100);
+    } else {
+      setTimeout(eraseRole, 1500);
+    }
+  }
+
+  function eraseRole() {
+    if (charIndex > 0) {
+      typedText.textContent = roles[roleIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(eraseRole, 50);
+    } else {
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(typeRole, 500);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (roles.length) setTimeout(typeRole, 1000);
+  });
+</script>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">ABOUT ME</h3>
+  <p class="w3-center"><em>The Explorer of AI & Ideas</em></p>
+  <p>I’m deeply passionate about Artificial Intelligence, with an ever-growing curiosity that fuels my journey through code, data, and design. I love turning complex ideas into something intuitive — whether through data visualizations, interactive dashboards, or clear data storytelling.</p>
+  <p>My mission? To explore, learn, build, and communicate insights that spark meaningful change. I'm always seeking new ways to expand my knowledge and bring my curiosity to life through hands-on projects.</p>
+  <p>Whether it's experimenting with new models, building user-facing tools, or visualizing insights with impact — I'm here for the full ride from concept to code to communication.</p>
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <img src="img/Image2.png" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+    </div>
+
+    <!-- Hide this text on small devices -->
+<div class="w3-col m6 w3-hide-small w3-padding-large">
+  <p class="w3-center"><em>Beyond the Code – Life Outside the Terminal</em></p>
+  <p>When I’m not immersed in AI or coding, you’ll likely find me out exploring the world through flavors, sights, and stories.</p>
+  <ul style="list-style: none; padding-left: 0;">
+    <li>🍜 <strong>Foodie by heart</strong> — always on a hunt for the next great bite.</li>
+    <li>✈️ <strong>Travelogger</strong> — capturing memories and moments from every corner I visit.</li>
+    <li>📚 <strong>Book lover</strong> — reading helps me reset, reflect, and stay inspired.</li>
+    <li>🎤 <strong>KTV warrior</strong> — because life needs rhythm, energy, and a little karaoke joy.</li>
+  </ul>
+</div>
+<!-- End # About -->
+
+<div class="w3-container">
+
+  <!-- Second Parallax Image with Portfolio Text -->
+  <div class="bgimg-2 w3-display-container w3-opacity-min" style="padding-top: 40px;"> 
+    <div class="w3-display-middle">
+      <span class="w3-xxlarge w3-text-white w3-wide">Journey with me on my past projects</span>
+    </div>
+  </div>
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+  <h3 class="w3-center">MY Past Projects & Achievements</h3>
+  
+  <!-- First Row (3 columns per row) -->
+  <div class="w3-row-padding w3-center w3-section"> 
+
+    <!-- First Column -->
+    <div class="w3-col m4">
+      <a href="https://github.com/joyceDS22/aiap20.git" target="_blank">
+        <img src="img/w3imagesp9.png" style="width:100%" class="w3-hover-opacity" alt="Project: Customer Subscription Prediction">
+      </a>
+      <p class="w3-padding-small">Customer Subscription Prediction for Term Deposit Marketing Optimization</p>
+    </div>
+
+    <!-- Second Column -->
+    <div class="w3-col m4">
+      <a href="https://github.com/joyceDS22/ICT619.git" target="_blank">
+        <img src="img/w3imagesp1.png" style="width:100%" class="w3-hover-opacity" alt="Project: Transforming Diabetes Care">
+      </a>
+      <p class="w3-padding-small">Explored Multi-Layer Perceptron (MLP) models and deployed a user-friendly interface to help the Pima Indian community assess their diabetes risk efficiently and seamlessly.</p>
+    </div>
+
+    <!-- Third Column -->
+    <div class="w3-col m4">
+      <a href="https://github.com/joyceDS22/TB-Burden.git" target="_blank">
+        <img src="img/w3imagesp2.jpeg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Project: Fighting Against Global Tuberculosis">
+      </a>
+      <p class="w3-padding-small">Harnesses the power of data visualization to build both exploratory and explanatory dashboards, driving effective data communication and delivering actionable insights.</p>
+    </div>
+
+  </div>
+
+  <!-- Second Row (3 columns per row) -->
+  <div class="w3-row-padding w3-center w3-section"> 
+
+    <!-- Fourth Column -->
+    <div class="w3-col m4">
+      <a href="https://github.com/joyceDS22/Early-Prevention-of-Diabetes-using-Explainable-ML.git" target="_blank">
+        <img src="img/w3imagesp3.jpeg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Project: Early Prevention of Diabetes using XAI">
+      </a>
+      <p class="w3-padding-small">Improving data transparency by leveraging SHAP and LIME to explain model predictions and enhance interpretability.</p>
+    </div>
+
+    <!-- Fifth Column -->
+    <div class="w3-col m4">
+      <a href="https://github.com/joyceDS22/Project-2-NLP-Sentiment-Analysis-and-Topic-Modelling-in-US-Airline-Tweets.git" target="_blank">
+        <img src="img/w3imagesp4.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Project: Sentiment Analysis & Topic Modeling in US Airline Tweets">
+      </a>
+      <p class="w3-padding-small">Using sentiment analysis to improve customer service in the airline industry by analyzing reviews to uncover insights and enhance the customer experience.</p>
+    </div>
+
+    <!-- Sixth Column -->
+    <div class="w3-col m4">
+      <a href="https://github.com/joyceDS22/Predictive-Analysis-of-Customer-Attrition-in-the-Iranian-Telecom-Sector.git" target="_blank">
+        <img src="img/w3imagesp5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Project: Predictive Analysis of Customer Attrition in the Iranian Telecom Sector">
+      </a>
+      <p class="w3-padding-small">Using predictive analytics to forecast market demand and enhance customer retention in the Iranian telecom sector.</p>
+    </div>
+
+  </div>
+
+  <!-- Third Row (3 columns per row) -->
+  <div class="w3-row-padding w3-center w3-section"> 
+
+    <!-- Seventh Column -->
+    <div class="w3-col m4">
+      <a href="https://github.com/joyceDS22/Customer-Segmentation-Analysis.git" target="_blank">
+        <img src="img/w3imagesp6.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Project: Customer Segmentation in E-commerce">
+      </a>
+      <p class="w3-padding-small">Using unsupervised learning for customer segmentation in the UK retail sector.</p>
+    </div>
+
+    <!-- Eighth Column -->
+    <div class="w3-col m4">
+      <a href="https://github.com/joyceDS22/Influence-of-Individual-s-Characteristics-on-Dental-Pre-surgery-and-prediction-of-Treatment-Time.git" target="_blank">
+        <img src="img/w3imagesp7.jpeg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Project: Influence of Individual’s Characteristics on Dental Pre-surgery and Treatment Time">
+      </a>
+      <p class="w3-padding-small">Exploring linear regression and decision trees to identify the impact of individual characteristics on dental pre-surgery and treatment time.</p>
+    </div>
+
+    <!-- Ninth Column -->
+    <div class="w3-col m4">
+      <a href="https://github.com/joyceDS22/Washington-DC-Crime_Python.git" target="_blank">
+        <img src="img/w3imagesp8.jpeg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Project: Washington DC Metro Area Crime Rate">
+      </a>
+      <p class="w3-padding-small">Utilizing Python's Folium library for enhanced crime detection through interactive mapping and spatial analysis to analyze and communicate the Washington DC Metro Area crime rate.</p>
+    </div>
+
+  </div>
+</div>
+<!-- Container (End Portfolio Section) -->
+ 
+</div>
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">GET IN TOUCH</h3>
+      <p>Connect with me <i class="fa fa-coffee"></i>, or leave me a note:</p>
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          </div>
+        </div>
+        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+        <button class="w3-button w3-black w3-right w3-section" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey">
+    <i class="fa fa-arrow-up w3-margin-right"></i>To the top
+  </a>
+  <div class="w3-xlarge w3-section">
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/joyce-yeo-ds2022" target="_blank">
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </a>
+    <!-- GitHub -->
+    <a href="https://github.com/joyceDS22" target="_blank">
+      <i class="fa fa-github w3-hover-opacity"></i>
+    </a>
+  </div>
+</footer>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>
